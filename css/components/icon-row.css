@@ -1,0 +1,20 @@
+.icon-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon-row__icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 아이콘 크기는 속성값(제한있음)을 줄 수도 있고 폰트 크기로 처리해도 됨 */
+.icon-row__icon i {
+  font-size: 28px;
+}
+
+.icon-row__icon span {
+  margin-top: 15px;
+  font-size: 13px;
+}

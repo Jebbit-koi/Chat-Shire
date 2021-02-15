@@ -1,0 +1,9 @@
+:root {
+  --purple: rgb(106, 96, 169);
+  --lightpurple: rgb(222, 220, 238);
+  --cream: rgb(255, 252, 240);
+  --yellow: rgb(251, 209, 75);
+  --grey: #3c3530;
+  --horizontal-space: 25px;
+  --main-border: 1px solid rgba(106, 96, 169, 0.2);
+}

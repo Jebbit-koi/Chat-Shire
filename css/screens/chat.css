@@ -1,0 +1,240 @@
+#chat-screen {
+  background-color: var(--yellow);
+  color: white;
+  height: 500vh;
+}
+
+#chat-screen .status-bar,
+#chat-screen .alt-header {
+  position: fixed;
+  width: 100%;
+  box-sizing: border-box;
+  top: 0;
+  background-color: var(--yellow);
+  /* 이미 배경이 노란색이어도 제일 아래층이 노란색인거고 
+  상태바를 따로 노란색으로 해줘야 레이어 자체도 노란색이 된다!! */
+}
+
+#chat-screen .alt-header {
+  top: 10px;
+  z-index: 1;
+  /* z-index는 레이어의 우선순위. 숫자가 높을수록 위에 위치 */
+}
+
+#chat-screen .status-bar {
+  color: var(--grey);
+  z-index: 2;
+}
+
+@keyframes fadeInLeft {
+  0% {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.message-row--you {
+  animation: fadeInLeft 0.5s linear;
+}
+
+@keyframes fadeInRight {
+  0% {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.message__info--own {
+  opacity: 0;
+  animation: fadeInRight 0.5s linear forwards;
+  animation-delay: 0.5s;
+}
+
+.message-row--you2 {
+  opacity: 0;
+  animation: fadeInLeft 0.5s linear forwards;
+  animation-delay: 1s;
+}
+
+.message__info--own2 {
+  opacity: 0;
+  animation: fadeInRight 0.5s linear forwards;
+  animation-delay: 1.5s;
+}
+
+.main-chat {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chat__timestamp {
+  background-color: grey;
+  opacity: 0.7;
+  padding: 5px 15px;
+  border-radius: 15px;
+  font-size: 12px;
+  margin-bottom: 25px;
+}
+
+.message-row {
+  width: 100%;
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.message-row img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.message__author {
+  font-size: 15px;
+  color: var(--grey);
+  margin-top: 8px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.message__bubble {
+  background-color: var(--cream);
+  padding: 8px 13px;
+  font-size: 17px;
+  border-radius: 12px;
+  border-top-left-radius: 0px;
+  margin-right: 5px;
+  color: var(--grey);
+}
+
+.message__info {
+  display: flex;
+  align-items: flex-end;
+}
+
+.message__time {
+  font-size: 13px;
+  color: var(--grey);
+}
+
+.message-row--own {
+  justify-content: flex-end;
+}
+
+.message-row--own .message__bubble {
+  background-color: var(--purple);
+  color: var(--cream);
+  border-top-right-radius: 0px;
+  border-top-left-radius: 12px;
+  margin-right: 0;
+  margin-left: 5px;
+}
+
+.message-row--own .message__info {
+  flex-direction: row-reverse;
+  /* 순서 바뀌기 유용함!! */
+}
+
+.reply {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--cream);
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 25px;
+  align-items: center;
+  box-sizing: border-box;
+  transition: transform 0.3s ease-in-out;
+}
+
+.reply .reply__column:first-child {
+  width: 10%;
+  color: var(--purple);
+}
+
+.reply .reply__column:last-child {
+  width: 90%;
+  position: relative;
+}
+
+.reply i {
+  opacity: 0.5;
+}
+
+.reply input {
+  padding: 8px 15px;
+  width: 100%;
+  border: var(--main-border);
+  border-radius: 20px;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+
+.reply input::placeholder {
+  color: var(--purple);
+  font-family: "Tillana", cursive;
+}
+
+.reply__column:last-child > i,
+.reply__column:last-child button {
+  position: absolute;
+  right: 5px;
+  top: 2px;
+}
+
+.reply__column:last-child > i {
+  right: 40px;
+  top: 10px;
+  color: var(--purple);
+}
+
+.reply__column button {
+  background-color: var(--purple);
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.reply__column button i {
+  opacity: 1;
+  color: var(--cream);
+}
+
+.reply__column button:focus,
+.reply__column button:active {
+  outline: none;
+}
+
+.reply .reply__column:first-child,
+.reply .fa-grin-hearts,
+.reply button {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.reply:focus-within .reply__column:first-child,
+.reply:focus-within .fa-grin-hearts,
+.reply:focus-within button {
+  opacity: 0;
+}
+
+.reply:focus-within input {
+  width: 98vw;
+  transform: translateX(-14%) translateY(-80px);
+}
+
+.reply:focus-within {
+  transform: translateY(80px);
+}

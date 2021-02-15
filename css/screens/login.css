@@ -1,0 +1,73 @@
+.welcome-header {
+    margin: 90px 0px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;     
+}
+
+.welcome-header__title {
+    margin-bottom: 40px;
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--cream);
+}
+
+.welcome-header__text {
+    width: 70%;
+    font-size: 15px;
+    opacity: 0.5;
+    font-weight: 400;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 30px;
+}
+
+.login-form input {
+    border: none;
+    padding: 15px 10px;
+    font-size: 15px;
+    margin-bottom: 15px;
+    
+}
+
+.login-form input::placeholder {
+    color: var(--purple);
+    font-family: 'Tillana', cursive;
+    opacity: 0.5;
+    
+}
+
+/* not을 쓰면 그것만 제외하고 적용됨 */
+.login-form input:not([type="submit"]) {
+    border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+    transition: border-color 0.6s ease-in-out;
+    
+}
+
+/* 이게 위의 속성들보다 아래에 있어야 focus시 작동함. cascading is Important!! */
+.login-form input:focus {
+    border-color: var(--yellow);
+}
+
+.login-form input[type="submit"] {
+    background-color: var(--cream);
+    cursor: pointer;
+    padding: 15px 0px;
+    border-radius: 5px;
+    font-family: 'Tillana', cursive;
+    font-size: 20px;
+    color: var(--purple);
+
+}
+
+.login-form a {
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    /* inherit : 부모랑 같은 속성을 가짐 */
+    font-size: 13px;
+}
